@@ -17,6 +17,7 @@ class TablaVotanteConPuntero{
 
        $punteros = ControladorPuntero::ctrMostrarPuntero($item, $valor);
 
+
   		if(count($punteros) == 0){
 
   			echo '{"data": []}';
@@ -33,16 +34,16 @@ class TablaVotanteConPuntero{
  	 		TRAEMOS EL PUNTERO DE CADA VOTANTE
   			=============================================*/ 
 
-            $item = "id_lider";
-            $valor = $punteros[$i]["id_lider"];
+            // $item = "id_lider";
+            // $valor = $punteros[$i]["id_lider"];
 
-            $punteros_lideres = ControladorPuntero::ctrMostrarPunterosLideres($item, $valor);
+            // $punteros_lideres = ControladorPuntero::ctrMostrarPunterosLideres($item, $valor);
 
 		  	/*=============================================
  	 		TRAEMOS EL ESTADO DE VOTACION
   			=============================================*/ 
 
-            if($punteros[$i]["activo"] != 0){
+            if($punteros[$i]["estado"] != 0){
 
                 $estado="<td><button class='btn btn-success btn-xs btnActivar' idVotante='".$punteros[$i]["id_puntero"]."' estadoVotante='0'>Si voto</button></td>";
 
@@ -62,11 +63,11 @@ class TablaVotanteConPuntero{
 		 
 		  	$datosJson .='[
 			      "'.($i+1).'",
-			      "'.$punteros_lideres["nombre"].' '.$punteros_lideres["apellido"].'",
-			      "'.$punteros_lideres["cedula"].'",
-			      "'.$punteros_lideres["zona"].'",
-			      "'.$punteros[$i]["nombre"].'",
-			      "'.$punteros[$i]["cedula"].'",
+			      "'.$punteros[$i]["nombre_puntero"].' '.$punteros[$i]["apellido_puntero"].'",
+			      "'.$punteros[$i]["cedula_puntero"].'",
+			      "'.$punteros[$i]["zona"].'",
+			      "'.$punteros[$i]["nombre_votante"].'",
+			      "'.$punteros[$i]["cedula_votante"].'",
 			      "'.$punteros[$i]["barrio"].'",
 			      "'.$punteros[$i]["telefono"].'",
 			      "'.$punteros[$i]["lugar_votacion"].'",

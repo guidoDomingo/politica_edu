@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Administrar Punteros</title>
 
-  <link rel="icon" href="vista/plantilla/thn.jpg">
-
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
@@ -134,7 +132,7 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="vista/js/plantilla.js"></script>
+
 <!-- <script src="vista/js/usuarios.js"></script>
 <script src="vista/js/categoria.js"></script>
 <script src="vista/js/proveedor.js"></script>
@@ -143,6 +141,7 @@
 <script src="vista/js/lider.js"></script> 
 <script src="vista/js/puntero.js"></script>
 <script src="vista/js/votante.js"></script>
+<script src="vista/js/plantilla.js"></script>
 </body>
 </body>
 </html>

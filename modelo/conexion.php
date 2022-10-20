@@ -6,7 +6,7 @@ class Conexion{
 
 		$link = new PDO("pgsql:host=localhost;dbname=politica",
 			            "postgres",
-			            "admin");
+			            "root");
 
 		$link->exec("set names utf8");
 

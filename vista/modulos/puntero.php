@@ -39,7 +39,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="tablasPuntero" class="table table-bordered table-striped tablas">
+                <table id="tablasPuntero" class="table table-bordered table-striped tablas tablasPuntero1">
                   
                   <thead>
          
@@ -65,10 +65,10 @@
 
                     </thead>
 
-                    <!-- <tbody>
+                    <tbody>
 
                          
-                    </tfoot> -->
+                    </tfoot>
 
                 </table>
 

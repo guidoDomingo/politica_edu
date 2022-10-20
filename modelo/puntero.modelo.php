@@ -26,10 +26,10 @@ class ModeloPuntero{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare(
-				"SELECT * FROM $tabla as pun
-				inner join personas as per
-				on pun.id_persona_puntero = per.id_persona ");
+			$stmt = Conexion::conectar()->prepare("
+				select * from fn_tabla_examenes1();
+				
+				");
 
 			$stmt -> execute();
 
@@ -38,7 +38,6 @@ class ModeloPuntero{
 		}
 		
 
-		$stmt -> close();
 
 		$stmt = null;
 
@@ -82,7 +81,7 @@ class ModeloPuntero{
 		}
 		
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -126,7 +125,7 @@ class ModeloPuntero{
 		}
 		
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -177,7 +176,7 @@ class ModeloPuntero{
 		}
 
 	
-		//$stmt -> close();
+		//
 
 		$stmt = null;
 	
@@ -223,7 +222,7 @@ class ModeloPuntero{
 
 		}
 
-		//$stmt -> close();
+		//
 
 		$stmt = null;
 
@@ -250,7 +249,7 @@ class ModeloPuntero{
 
 		}
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -276,7 +275,7 @@ class ModeloPuntero{
 
 		}
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -296,7 +295,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -314,7 +313,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -335,7 +334,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -356,7 +355,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -377,7 +376,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -398,7 +397,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetchAll();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -418,7 +417,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -441,7 +440,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 
@@ -462,7 +461,7 @@ class ModeloPuntero{
 
 		return $stmt -> fetch();
 
-		$stmt -> close();
+		
 
 		$stmt = null;
 

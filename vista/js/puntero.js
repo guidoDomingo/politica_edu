@@ -4,10 +4,12 @@
 
 
 $('#tablasPuntero').DataTable( {
+    
     "ajax": "ajax/datatable-votantes-con-puntero.ajax.php",
     "deferRender": true,
     "retrieve": true,
     "processing": true,
+    
     "language": {
 
       "sProcessing":     "Procesando...",
@@ -31,11 +33,19 @@ $('#tablasPuntero').DataTable( {
       "oAria": {
         "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
         "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-      }
+      },
 
-  }
+  },
+  dom: 'Bfrtip',
+  buttons: [
+      'copy', 'csv', 'excel', 'pdf', 'print'
+  ]
 
-} );
+}).buttons().container().appendTo('#tablasPuntero_wrapper .col-md-6:eq(0)');
+
+ 
+     
+
 
 
 $(".tablas").on("click", ".btnEditarPuntero", function(){
