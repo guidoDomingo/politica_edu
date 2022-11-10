@@ -58,6 +58,7 @@
                        <th>lugar votación</th>
                        <th>N° de mesa</th>
                        <th>N° de orden</th>
+                       <th>Estado veedor</th>
                        <th>Estado Voatación</th>
                        <th>Acciones</th>
 

@@ -53,6 +53,21 @@ class TablaVotanteConPuntero{
 
             } 
 
+			/*=============================================
+			
+ 	 		TRAEMOS EL ESTADO DE VOTACION VEEDOR
+  			=============================================*/ 
+
+			if($punteros[$i]["estado_veedor"] != 0){
+
+				$estado_veedor="<td><button class='btn btn-success btn-xs btnActivarVeedor' idVotante='".$punteros[$i]["id_puntero"]."' estadoVotante='0'>Si paso</button></td>";
+
+			}else{
+
+				$estado_veedor="<td><button class='btn btn-danger btn-xs btnActivarVeedor' idVotante='".$punteros[$i]["id_puntero"]."' estadoVotante='1'>No paso</button></td>";
+
+			} 
+
 		  	/*=============================================
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
@@ -73,6 +88,7 @@ class TablaVotanteConPuntero{
 			      "'.$punteros[$i]["lugar_votacion"].'",
 			      "'.$punteros[$i]["numero_mesa"].'",
 			      "'.$punteros[$i]["numero_orden"].'",
+			      "'.$estado_veedor.'",
 			      "'.$estado.'",
 			      "'.$botones.'"
 			    ],';

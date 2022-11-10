@@ -62,13 +62,14 @@ class AjaxPuntero{
 
 	public $activarUsuario;
 	public $activarId;
+	public $columna;
 
 
 	public function ajaxActivarVotante(){
 
 		$tabla = "puntero";
 
-		$item1 = "activo";
+		$item1 = $this->columna;
 		$valor1 = $this->activarUsuario;
 
 		$item2 = "id_puntero";
@@ -76,7 +77,9 @@ class AjaxPuntero{
 
 		$respuesta = ModeloPuntero::mdlActualizarVotante($tabla, $item1, $valor1, $item2, $valor2);
 
+
 	}
+	
 
 	
 	/*=============================================
@@ -138,6 +141,20 @@ if(isset($_POST["activarUsuario"])){
 	$activarUsuario = new AjaxPuntero();
 	$activarUsuario -> activarUsuario = $_POST["activarUsuario"];
 	$activarUsuario -> activarId = $_POST["activarId"];
+	$activarUsuario -> columna = $_POST["columna"];
+	$activarUsuario -> ajaxActivarVotante();
+
+}
+/*=============================================
+ACTIVAR USUARIO VEEDOR
+=============================================*/	
+
+if(isset($_POST["activarUsuarioVeedor"])){
+
+	$activarUsuario = new AjaxPuntero();
+	$activarUsuario -> activarUsuario = $_POST["activarUsuarioVeedor"];
+	$activarUsuario -> activarId = $_POST["activarId"];
+	$activarUsuario -> columna = $_POST["columna"];
 	$activarUsuario -> ajaxActivarVotante();
 
 }
