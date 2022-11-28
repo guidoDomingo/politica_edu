@@ -1,3 +1,10 @@
+
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,11 +84,15 @@
 <!-- CUERPO DE LA CABECERA -->
 
 <body class="hold-transition sidebar-collapse sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
+
  
   <!-- MODULO DE LA CABECERA -->
   <?php
+  
+    if( isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok" ){
+
+    echo '<div class="wrapper">';
+    
     include 'modulos/cabecera.php';
 
     include 'modulos/menu-lateral.php';
@@ -117,19 +128,24 @@
     }
 
     
-    /*=============================================
+     /*=============================================
     FOOTER
     =============================================*/
 
     include "modulos/footer.php";
 
+    echo '</div>';
 
+    }else{
+
+        include "modulos/login.php";
+
+    }
     
   ?>
   <!-- Main Sidebar Container -->
  
 
-</div>
 <!-- ./wrapper -->
 
 
