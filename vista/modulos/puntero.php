@@ -39,20 +39,17 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="tablasPuntero" class="table table-bordered table-striped tablas tablasPuntero1">
+                <table id="example2" class="table table-bordered table-striped tablas">
                   
                   <thead>
          
                      <tr>
-                       
                        <th style="width:10px">#</th>
                        <th>Puntero</th>
                        <th>Cedula</th>
                        <th>Zona</th>
                        <th>Votante</th>
                        <th>cedula</th>
-                     <!--   <th>Ciudad</th> -->
-                      <!-- <td>'.$value["ciudad"].'</td> -->
                        <th>barrio</th>
                        <th>telefono</th>
                        <th>lugar votación</th>
@@ -61,15 +58,92 @@
                        <th>Estado veedor</th>
                        <th>Estado Voatación</th>
                        <th>Acciones</th>
-
                      </tr> 
 
-                    </thead>
+                  </thead>
 
-                    <tbody>
+                  <tbody>
 
+                    <?php
+
+                    $item = null;
+                    $valor = null;
+
+                    $punteros = ControladorPuntero::ctrMostrarPuntero($item, $valor);
+
+                   
+                    foreach($punteros as $key => $value){
+
+                       /*=============================================
+                          TRAEMOS EL PUNTERO DE CADA VOTANTE
+                        =============================================*/ 
+
+                            $item = "id_lider";
+                            $valor = $value["id_lider"];
+                            //return var_dump($valor);
+                            $punteros_lideres = ControladorPuntero::ctrMostrarPunterosLideres($item, $valor);
+                            //return var_dump($punteros_lideres["zona"]);
+                            
+
+                        /*=============================================
+                          TRAEMOS EL ESTADO DE VOTACION
+                        =============================================*/ 
+
+                          if($value["activo"] != 0){
+
+                            $estado="<td><button class='btn btn-success btn-xs btnActivar' idVotante='".$value["id_puntero"]."' estadoVotante='0'>Si voto</button></td>";
+
+                          }else{
+
+                            $estado="<td><button class='btn btn-danger btn-xs btnActivar' idVotante='".$value["id_puntero"]."' estadoVotante='1'>No voto</button></td>";
+
+                          } 
+
+                        /*=============================================
+                        
+                          TRAEMOS EL ESTADO DE VOTACION VEEDOR
+                          =============================================*/ 
+
+                        if($value["activo_veedor"] != 0){
+
+                          $estado_veedor="<td><button class='btn btn-success btn-xs btnActivarVeedor' idVotante='".$value["id_puntero"]."' estadoVotante='0'>Si paso</button></td>";
+
+                        }else{  
+
+                          $estado_veedor="<td><button class='btn btn-danger btn-xs btnActivarVeedor' idVotante='".$value["id_puntero"]."' estadoVotante='1'>No paso</button></td>";
+
+                        } 
+
+                        /*=============================================
+                        TRAEMOS LAS ACCIONES
+                        =============================================*/ 
+
+                        $botones="<div class='btn-group'><button class='btn btn-warning btnEditarPuntero' idPuntero='".$value['id_persona']."' data-toggle='modal' data-target='#modalEditarPuntero'><i class='fa fa-pencil-alt'></i></button><button class='btn btn-danger btnEliminarPuntero' idPuntero='".$value['id_puntero']."'><i class='fa fa-times'></i></button></div>"; 
+                                        
+                      
+                      echo '
+                             <tr>
+                                  <td>'.($key+1).'</td> 
+                                  <td>'.$punteros_lideres['nombre'].' '.$punteros_lideres['apellido'].'</td>
+                                  <td>'.$punteros_lideres['cedula'].'</td>
+                                  <td>'.$punteros_lideres['zona'].'</td>
+                                  <td>'.$value['nombre'].'</td>
+                                  <td>'.$value['cedula'].'</td>
+                                  <td>'.$value['barrio'].'</td>
+                                  <td>'.$value['telefono'].'</td>
+                                  <td>'.$value['lugar_votacion'].'</td>
+                                  <td>'.$value['numero_mesa'].'</td>
+                                  <td>'.$value['numero_orden'].'</td>
+                                  '.$estado_veedor.'
+                                  '.$estado.'
+                                  <td>'.$botones.'</td>
+                            </tr>                           
+                      ';
+                   }
+
+                    ?>
                          
-                    </tfoot>
+                  </tbody>
 
                 </table>
 
