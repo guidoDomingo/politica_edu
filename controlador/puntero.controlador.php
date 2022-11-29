@@ -103,6 +103,24 @@ class ControladorPuntero{
 		return $respuesta;
 	}
 
+	/*=============================================
+	Buscar PUNTERO
+	=============================================*/
+
+	static public function ctrBuscarPuntero($item, $valor){
+
+		if(isset($_POST['buscarVotante']) && !empty($_POST['buscarVotante'])){
+
+			$valor = $_POST['buscarVotante'];
+			$tabla = "puntero";
+
+			$respuesta = ModeloPuntero::mdlMostrarPunteros($tabla, $item, $valor);
+
+			return $respuesta;
+		}
+
+	}
+
 		/*=============================================
 	MOSTRAR DATOS DE EXCEL
 	=============================================*/

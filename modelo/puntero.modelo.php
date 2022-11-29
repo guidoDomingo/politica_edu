@@ -18,7 +18,7 @@ class ModeloPuntero{
 				on pun.id_persona_puntero = per.id_persona  
 				WHERE $item = :$item");
 
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+			$stmt->bindParam(":".$item, $valor, PDO::PARAM_INT);
 
 			$stmt -> execute();
 
