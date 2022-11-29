@@ -61,7 +61,10 @@ class ModeloLider{
 
 		if($stmt->execute()){
 
-			$stmt = Conexion::conectar()->prepare("SELECT f_numero_maximo() ;");
+			$stmt = Conexion::conectar()->prepare("
+				select max(coalesce( id_persona,0 ) ) as f_numero_maximo
+				from personas
+			");
 			$stmt->execute();
 			$id = $stmt->fetch();
 			$v_id = $id["f_numero_maximo"];
