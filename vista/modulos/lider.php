@@ -146,6 +146,22 @@ MODAL AGREGAR USUARIO
 
           <div class="box-body">
 
+             <!-- ENTRADA PARA la cedula -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <button class="btn btn-outline-secondary" type="button">
+                    <i class="fa fa-lock"></i>
+                </button> 
+
+                <input type="text" class="form-control input-lg" id="validarCedula" name="nuevoCedula" placeholder="Ingresar cedula" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
@@ -156,7 +172,7 @@ MODAL AGREGAR USUARIO
                     <i class="fa fa-user"></i>
                 </button> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar nombre" required>
 
               </div>
 
@@ -178,22 +194,6 @@ MODAL AGREGAR USUARIO
 
             </div>
 
-             <!-- ENTRADA PARA la cedula -->
-
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <button class="btn btn-outline-secondary" type="button">
-                    <i class="fa fa-lock"></i>
-                </button> 
-
-                <input type="text" class="form-control input-lg" id="validarCedula" name="nuevoCedula" placeholder="Ingresar cedula" required>
-
-              </div>
-
-            </div>
-
             <!-- ENTRADA PARA LA ciudad -->
 
              <div class="form-group">
@@ -204,7 +204,7 @@ MODAL AGREGAR USUARIO
                     <i class="fa fa-lock"></i>
                 </button> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCiudad" placeholder="Ingresar ciudad" required>
+                <input type="text" class="form-control input-lg" name="nuevoCiudad" id="nuevoCiudad" placeholder="Ingresar ciudad" required>
 
               </div>
 
@@ -220,13 +220,13 @@ MODAL AGREGAR USUARIO
                     <i class="fa fa-lock"></i>
                 </button> 
 
-                <input type="text" class="form-control input-lg" name="nuevoBarrio" placeholder="Ingresar barrio" required>
+                <input type="text" class="form-control input-lg" name="nuevoBarrio" id="nuevoBarrio" placeholder="Ingresar barrio" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
+            <!-- ENTRADA PARA TELEFONO -->
 
              <div class="form-group">
               
@@ -236,7 +236,7 @@ MODAL AGREGAR USUARIO
                     <i class="fa fa-lock"></i>
                 </button> 
 
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar telefono" required>
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar telefono">
 
               </div>
 
@@ -253,7 +253,7 @@ MODAL AGREGAR USUARIO
                     <i class="fa fa-lock"></i>
                 </button> 
 
-                <input type="text" class="form-control input-lg" name="nuevoZona" placeholder="Ingresar zona" required>
+                <input type="text" class="form-control input-lg" name="nuevoZona" placeholder="Ingresar zona">
 
               </div>
 

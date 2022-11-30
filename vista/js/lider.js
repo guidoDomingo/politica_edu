@@ -104,7 +104,27 @@ $("#validarCedula").change(function(){
 
           $("#validarCedula").val("");
 
-        }
+        } else {
+			var datos_nuevo = new FormData();
+			datos_nuevo.append("cedula_excel", cedula);
+	
+			$.ajax({
+			  url: "ajax/puntero.ajax.php",
+			  method: "POST",
+			  data: datos_nuevo,
+			  cache: false,
+			  contentType: false,
+			  processData: false,
+			  dataType: "json",
+			  success: function (respuesta) {
+				console.log(respuesta);
+				$("#nuevoNombre").val(respuesta["nombre"]);
+				$("#nuevoApellido").val(respuesta["apellido"]);
+				$("#nuevoBarrio").val(respuesta["direccion"]);
+				$("#nuevoCiudad").val(respuesta["direccion"]);
+			  },
+			});
+		  }
 
       }
 
