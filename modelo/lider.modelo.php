@@ -174,11 +174,7 @@ class ModeloLider{
 	
 		if($stmt -> execute()){
 
-
-			
 			return "ok";
-			
-			
 		
 		}else{
 
