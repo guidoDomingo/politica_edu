@@ -219,6 +219,25 @@ class ControladorLider{
 
 				</script>';
 
+			}else{
+				echo'<script>
+
+						swal({
+						  title: "No se pudo borrar el registro",
+						  text: "No se ha borrado de la App",
+						  icon: "warning",
+						  buttons: true,
+						  dangerMode: true,
+						})
+						.then((willDelete) => {
+						  if (willDelete) {
+						    window.location = "lider";
+						  } else {
+						    window.location = "lider";
+						  }
+						});
+
+				</script>';
 			}		
 
 		}
