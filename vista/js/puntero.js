@@ -177,7 +177,8 @@ $("#validarCedulaPuntero").change(function () {
             $("#nuevoNombre").val(respuesta["nombre"]);
             $("#nuevoApellido").val(respuesta["apellido"]);
             $("#nuevoBarrio").val(respuesta["direccion"]);
-            $("#nuevoCiudad").val("SAN BERNARDINO");
+            $("#nuevoCiudad").val(respuesta["direccion"]);
+            $("#nuevoLugar").val(respuesta["local"]);
             $("#nuevoNumeroMesa").val(respuesta["mesa"]);
             $("#nuevoOrden").val(respuesta["orden"]);
           },

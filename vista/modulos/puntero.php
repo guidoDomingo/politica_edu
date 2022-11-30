@@ -80,7 +80,7 @@
                 <th>lugar votación</th>
                 <th>N° de mesa</th>
                 <th>N° de orden</th>
-                <th>Estado veedor</th>
+                <!-- <th>Estado veedor</th> -->
                 <th>Estado Voatación</th>
                 <th>Acciones</th>
               </tr>
@@ -164,7 +164,6 @@
                                   <td>' . $value['lugar_votacion'] . '</td>
                                   <td>' . $value['numero_mesa'] . '</td>
                                   <td>' . $value['numero_orden'] . '</td>
-                                  ' . $estado_veedor . '
                                   ' . $estado . '
                                   <td>' . $botones . '</td>
                             </tr>                           

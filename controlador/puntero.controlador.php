@@ -127,7 +127,7 @@ class ControladorPuntero{
 
 	static public function ctrDatosExcel($item, $valor){
 
-		$tabla = "excel_edu";
+		$tabla = "excel_cordillera";
 
 		$respuesta = ModeloPuntero::mdlDatosExcel($tabla, $item, $valor);
 

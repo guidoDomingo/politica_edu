@@ -352,8 +352,10 @@ class ModeloPuntero{
 
 	static public function mdlDatosExcel($tabla,$item,$valor){	
 
-		$stmt = Conexion::conectar()->prepare("SELECT nombre,apellido,direccion,mesa,orden FROM $tabla 
-		where $item = :cedula");
+		$stmt = Conexion::conectar()->prepare("
+			SELECT nombre,apellido,distrito as direccion,mesa,mesaorden as orden, local FROM $tabla 
+			where $item = :cedula
+		");
 
 		$stmt -> bindParam(":cedula", $valor, PDO::PARAM_STR);
 
