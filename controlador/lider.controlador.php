@@ -223,7 +223,7 @@ class ControladorLider{
 				echo'<script>
 
 						swal({
-						  title: "No se pudo borrar el registro",
+						  title: "No se pudo borrar el registrooo",
 						  text: "No se ha borrado de la App",
 						  icon: "warning",
 						  buttons: true,
