@@ -223,7 +223,7 @@ class ControladorLider{
 				echo'<script>
 
 						swal({
-						  title: "No se pudo borrar el registroooooo",
+						  title: "Posiblemente tiene asignado un votante",
 						  text: "No se ha borrado de la App",
 						  icon: "warning",
 						  buttons: true,
