@@ -171,7 +171,7 @@ class ModeloLider{
 
 		$stmt -> bindParam(":id_lider", $datos["id_lider"], PDO::PARAM_INT);
 
-	
+		//borramos el lider
 		if($stmt -> execute()){
 
 				return "ok";
