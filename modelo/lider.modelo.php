@@ -38,8 +38,6 @@ class ModeloLider{
 		}
 		
 
-		$stmt -> close();
-
 		$stmt = null;
 
 	}
@@ -155,7 +153,7 @@ class ModeloLider{
 
 		}
 
-		$stmt -> close();
+
 
 		$stmt = null;
 
@@ -173,15 +171,8 @@ class ModeloLider{
 
 	
 		if($stmt -> execute()){
-
-			$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_persona = :id");
-
-			$stmt -> bindParam(":id", $datos["id_persona"], PDO::PARAM_INT);
-
-			if($stmt -> execute()){
-				return "ok";
-			}
 			
+			return "ok";
 		
 		}else{
 
