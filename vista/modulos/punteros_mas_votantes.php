@@ -7,6 +7,65 @@ $valor = null;
 $productos = ControladorPuntero::ctrMostrarPunterosUnicos($item, $valor);
 
 $colores = array("red","green","yellow","aqua","purple","blue","cyan","magenta","orange","gold");
+$colores = [
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'purple',
+  'brown',
+  'black',
+  'grey',
+  'white',
+  'indigo',
+  'pink',
+  'light blue',
+  'pale blue',
+  'sky blue',
+  'dark blue',
+  'deep blue',
+  'navy blue',
+  'Brightblue',
+  'olive green',
+ ' jet black',
+  'apple green',
+  'apricot',
+  'aquamarine',
+  'avocado',
+  'beige',
+  'cerise',
+  'cream',
+  'crimson',
+  'dusty-pink',
+  'emerald',
+  'fuchsia',
+  'golden',
+  'ivory',
+  'jade',
+  'khaki',
+  'lavender',
+  'lemon',
+  'lilac',
+  'lime',
+  'magenta',
+  'mustard',
+  'oatmeal',
+  'ochre',
+ ' off-white',
+  'peach',
+  'plum',
+  'russet',
+  'salmon',
+  'sienna',
+  'silver',
+  'tan',
+ ' terra cotta',
+  'topaz',
+  'tortoiseshell',
+  'turquoise',
+ ' food colouring',
+  'violet'
+];
 
 $total = ControladorPuntero::ctrMostrarSumaPuntero();
 
@@ -66,12 +125,15 @@ PRODUCTOS MÁS VENDIDOS
                  $ya_voto = ModeloPuntero::mdlCantidadVotoPorPuntero("puntero",$value["id_lider"]);
 
               	if($votos[0] == $ya_voto["total"]){
+                    $mitad = $votos[0] / 2;
+                    $valor = (50 * $votos[0]) / 100;
+                    
 
                   	echo '
           				<li>
 						 
     						 <p>'.$value["nombre"].'<span class="pull-right text-'.$colores[$key].'">   
-    						 '.ceil(intval($votos[0])*100/intval($total["total"])).'% ,Votantes: <strong>'.$votos[0].'</strong>, <span class="bg-green text-white votoPuntero p-2">de estos ya votaron: '. $ya_voto["total"].'</span></span>
+    						 '.ceil((intval($votos[0])*100)/intval($total["total"])).'% ,Votantes: <strong>'.$votos[0].'</strong>, <span class="bg-green text-white votoPuntero p-2">de estos ya votaron: '. $ya_voto["total"].'</span></span>
     			       		 </p>
                  
 
@@ -85,7 +147,7 @@ PRODUCTOS MÁS VENDIDOS
           				<li>
 						 
     						 <p>'.$value["nombre"].'<span class="pull-right text-'.$colores[$key].'">   
-    						 '.ceil(intval($votos[0])*100/intval($total["total"])).'% ,Votantes: <strong>'.$votos[0].'</strong>, <span class="bg-yellow text-white votoPuntero p-2"> de estos ya votaron: '. $ya_voto["total"].'<span> </span>
+    						 '.ceil((intval($votos[0])*100)/intval($total["total"])).'% ,Votantes: <strong>'.$votos[0].'</strong>, <span class="bg-yellow text-white votoPuntero p-2"> de estos ya votaron: '. $ya_voto["total"].'<span> </span>
     			       		 </p>
                  
 
@@ -99,7 +161,7 @@ PRODUCTOS MÁS VENDIDOS
           				<li>
 						 
     						 <p>'.$value["nombre"].'<span class="pull-right text-'.$colores[$key].'">   
-    						 '.ceil(intval($votos[0])*100/intval($total["total"])).'% ,Votantes: <strong>'.$votos[0].'</strong>,<span class="bg-red text-white votoPuntero p-2"> de estos ya votaron: '. $ya_voto["total"].'<span> </span>
+    						 '.ceil((intval($votos[0])*100)/intval($total["total"])).'% ,Votantes: <strong>'.$votos[0].'</strong>,<span class="bg-red text-white votoPuntero p-2"> de estos ya votaron: '. $ya_voto["total"].'<span> </span>
     			       		 </p>
                  
 

@@ -110,6 +110,8 @@ session_start();
          $_GET["ruta"] == "lider" ||
          $_GET["ruta"] == "voto-sin-puntero" ||
          $_GET["ruta"] == "cajas-superiores" ||
+         $_GET["ruta"] == "filero" ||
+         $_GET["ruta"] == "veedor" ||
          $_GET["ruta"] == "reportes" ||
          $_GET["ruta"] == "salir"){
 

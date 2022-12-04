@@ -48,14 +48,23 @@
               </p>
             </a>
           </li>
-            <!-- <li class="nav-item">
-            <a href="voto-sin-puntero" class="nav-link">
+            <li class="nav-item">
+            <a href="filero" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
-                Votantes sin puntero
+                Fileros
               </p>
             </a>
-          </li> -->
+          </li>
+          </li>
+            <li class="nav-item">
+            <a href="veedor" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Veedor
+              </p>
+            </a>
+          </li>
            <li class="nav-item">
             <a href="reportes" class="nav-link">
              <i class="nav-icon fa fa-flag"></i>

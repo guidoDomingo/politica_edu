@@ -7,6 +7,65 @@ $valor = null;
 $votantes = ControladorPuntero::ctrVotanteNombres();
 
 $colores = array("red","green","yellow","aqua","purple","blue","cyan","magenta","orange","gold");
+$array1 = [
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'purple',
+  'brown',
+  'black',
+  'grey',
+  'white',
+  'indigo',
+  'pink',
+  'light blue',
+  'pale blue',
+  'sky blue',
+  'dark blue',
+  'deep blue',
+  'navy blue',
+  'Brightblue',
+  'olive green',
+ ' jet black',
+  'apple green',
+  'apricot',
+  'aquamarine',
+  'avocado',
+  'beige',
+  'cerise',
+  'cream',
+  'crimson',
+  'dusty-pink',
+  'emerald',
+  'fuchsia',
+  'golden',
+  'ivory',
+  'jade',
+  'khaki',
+  'lavender',
+  'lemon',
+  'lilac',
+  'lime',
+  'magenta',
+  'mustard',
+  'oatmeal',
+  'ochre',
+ ' off-white',
+  'peach',
+  'plum',
+  'russet',
+  'salmon',
+  'sienna',
+  'silver',
+  'tan',
+ ' terra cotta',
+  'topaz',
+  'tortoiseshell',
+  'turquoise',
+ ' food colouring',
+  'violet'
+];
 //voto total
 $total = ControladorPuntero::ctrPosibleVotanteTotal();
 
@@ -99,7 +158,7 @@ PRODUCTOS MÁS VENDIDOS
 
     </div>
 
-    <div class="box-footer no-padding">
+    <div class="box-footer no-padding punteroVotante p-3">
     	
 		<ul class="">
 			
@@ -113,14 +172,14 @@ PRODUCTOS MÁS VENDIDOS
               
               //$votos = ControladorPuntero::ctrMostrarCantidadVotante($value["id_lider"]);
          
-            
+             $contador = $key + 1;
 
           		echo '
 
 
               <li>
 						 
-    						 <p>'.$value["nombre"].'<span class="pull-right text-'.$colores[1].'"> Ya Voto  </span>
+    						<spam>'. strval($contador).'</spam> <p>'.$value["nombre"].'<span class="pull-right text-'.$array1[$key].'"> Ya Voto  </span>
     			       </p>
                  
 
@@ -156,7 +215,7 @@ PRODUCTOS MÁS VENDIDOS
 
 
 
-          for($i = 0; $i < 1; $i++){
+          for($i = 0; $i < count($votantes); $i++){
 
               $votos = ControladorPuntero::ctrVotanteTotal();
              
@@ -164,8 +223,8 @@ PRODUCTOS MÁS VENDIDOS
               echo '
                  {
                     value    : '.ceil(intval($votos["total"])*100/intval($total["total"])).',
-                    color    : "'.$colores[$i].'",
-                    highlight: "'.$colores[$i].'",
+                    color    : "'.$array1[$i].'",
+                    highlight: "'.$array1[$i].'",
                     label    : " % de votos"
                   },
 

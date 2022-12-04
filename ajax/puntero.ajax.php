@@ -22,6 +22,24 @@ class AjaxPuntero{
 	}
 
 	/*=============================================
+	EDITAR Lider
+	=============================================*/	
+
+	public $idFilero;
+
+	public function agregarFilero(){
+
+		$item = "id_puntero";
+		$item1 = "id_filero";
+		$valor2 = $this->idPuntero;
+		$valor1 = $this->idFilero;
+		$respuesta = ControladorPuntero::ctrAgregarFilero($valor1, $valor2);
+
+		echo json_encode($respuesta);
+
+	}
+
+	/*=============================================
 	Recuperar el nombre del lider
 	=============================================*/	
 
@@ -168,5 +186,16 @@ if(isset($_POST["cedula_excel"])){
 	$datos_excel = new AjaxPuntero();
 	$datos_excel -> cedula_excel = $_POST["cedula_excel"];
 	$datos_excel -> ajaxDatosExcel();
+
+}
+/*=============================================
+DATOS AGREGAR FILERO CON PUNTERO 
+=============================================*/	
+
+if(isset($_POST["idFilero"])){
+	$filero = new AjaxPuntero();
+	$filero -> idFilero = $_POST["idFilero"];
+	$filero -> idPuntero = $_POST["idPuntero"];
+	$filero -> agregarFilero();
 
 }

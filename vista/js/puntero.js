@@ -237,6 +237,45 @@ $(".tablas").on("click", ".btnActivar", function () {
 });
 
 /*=============================================
+ACTIVAR FILERO
+=============================================*/
+$(".tablas").on("change", "#btnFileros", function () {
+  var idVotante = $(this).attr("idVotante");
+  var idFilero = $(this).val();
+  console.log(idFilero);
+  console.log(idVotante);
+  //var estadoVotante = $(this).attr("estadoVotante");
+
+  var datos = new FormData();
+  datos.append("idPuntero", idVotante);
+  datos.append("idFilero", idFilero);
+
+  $.ajax({
+    url: "ajax/puntero.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (respuesta) {
+      if (window.matchMedia("(max-width:767px)").matches) {
+        swal({
+          title: "Estado del voto actualizado",
+          type: "success",
+          confirmButtonText: "¡Cerrar!",
+        }).then(function (result) {
+          if (result.value) {
+            window.location = "puntero";
+          }
+        });
+      }
+    },
+  });
+
+ 
+});
+
+/*=============================================
 ACTIVAR SI YA VOTO VEEDOR
 =============================================*/
 $(".tablas").on("click", ".btnActivarVeedor", function () {

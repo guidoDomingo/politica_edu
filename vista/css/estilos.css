@@ -17,7 +17,7 @@
 }
 .punteroVotante{
 	border:1px solid #E61A1A;
-	width: 410px;
+	width: 70%;
 }
 .votoPuntero{
 	font-size: 17px;
@@ -34,9 +34,18 @@
 	display: flex;
 	flex-wrap: wrap;
 }
-.odd td:nth-child(-n+4){
+.odd td:nth-child(-n+3){
 	background-color: #0069D9;
 	text-align: center;
 	color: white;
 	font-size: 17px;
+}
+
+.veedor_voto{
+	background-color: green;
+	color: white;
+}
+.veedor_no_voto{
+	background-color: red;
+	color: white;
 }

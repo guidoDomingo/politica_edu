@@ -188,6 +188,35 @@ class ModeloPuntero{
 	
 
 	}
+	/*=============================================
+	CREAR filero con puntero
+	=============================================*/
+
+	static public function mdlAgregarFilero($tabla, $value1, $value2){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_filero= :value1 WHERE id_puntero=:value2;
+		");
+
+		$stmt->bindParam(":value1", $value1, PDO::PARAM_INT);
+		$stmt->bindParam(":value2", $value2, PDO::PARAM_INT);
+
+		if($stmt->execute()){
+
+			return "ok";	
+
+		}else{
+
+			return "error";
+		
+		}
+
+	
+		//
+
+		$stmt = null;
+	
+
+	}
 
 	/*=============================================
 	EDITAR PUNTERO

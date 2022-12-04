@@ -41,6 +41,81 @@ class ModeloLider{
 		$stmt = null;
 
 	}
+	/*=============================================
+	MOSTRAR FILEROS
+	=============================================*/
+
+	static public function mdlMostrarFileros($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("
+				SELECT * FROM $tabla   
+				WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare(
+				" SELECT * FROM $tabla ");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+		
+
+		$stmt = null;
+
+	}
+	/*=============================================
+	reporte fileros
+	=============================================*/
+
+	static public function reporteFileros($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("
+				SELECT * FROM $tabla   
+				WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("
+				select 
+					count(p.id_filero), f.nombre as filero,p2.nombre || ' ' || p2.apellido  as votante , f.id, p.activo_veedor  as ya_voto
+				from fileros f 
+				inner join puntero p 
+					on f.id = p.id_filero
+				inner join personas p2 
+					on p.id_persona_puntero = p2.id_persona 
+				group by f.nombre, f.id, p.activo_veedor, p.id_filero,p2.nombre, p2.apellido 
+				order by p.id_filero 
+			");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+		
+
+		$stmt = null;
+
+	}
 
 	/*=============================================
 	REGISTRO DE PUNTERO
@@ -77,6 +152,35 @@ class ModeloLider{
 			}
 
 				
+
+		}else{
+
+			return "error";
+		
+		}
+
+	
+		//$stmt -> close();
+
+		$stmt = null;
+	
+
+	}
+	/*=============================================
+	REGISTRO DE FILERO
+	=============================================*/
+
+	static public function mdlIngresarFilero($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, apellido, cedula) VALUES (:nombre, :apellido,:cedula)");
+
+		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
+		$stmt->bindParam(":cedula", $datos["cedula"], PDO::PARAM_INT);
+
+		if($stmt->execute()){
+		
+			return "ok";	
 
 		}else{
 

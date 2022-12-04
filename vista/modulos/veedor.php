@@ -23,7 +23,7 @@
     <div class="box">
 
       <div class="d-flex justify-content-between">
-        <div class="box-header with-border mb-2">
+        <!-- <div class="box-header with-border mb-2">
 
           <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarPuntero">
 
@@ -31,7 +31,7 @@
 
           </button>
 
-        </div>
+        </div> -->
         <div class="box-header with-border mr-5">
 
           <form id="loginform" method="post">
@@ -75,13 +75,13 @@
                 <!-- <th>Zona</th> -->
                 <th>Votante</th>
                 <th>cedula</th>
-                <th>barrio</th>
-                <th>telefono</th>
                 <th>lugar votación</th>
                 <th>N° de mesa</th>
                 <th>N° de orden</th>
-                <!-- <th>Estado veedor</th> -->
-                <th>Estado Voatación</th>
+                <th>Estado veedor</th> 
+                <!-- <th>Estado Voatación</th> -->
+                <th>Fileros</th>
+                <th>Nombre Filero</th>
                 <th>Acciones</th>
               </tr>
 
@@ -104,6 +104,12 @@
 
               }
 
+              $item = null;
+              $valor = null;
+
+              $fileros = ControladorLider::ctrMostrarFileros($item, $valor); 
+
+              
 
               //return var_dump($punteros);
 
@@ -145,6 +151,28 @@
                   $estado_veedor = "<td><button class='btn btn-danger btn-xs btnActivarVeedor' idVotante='" . $value["id_puntero"] . "' estadoVotante='1'>No paso</button></td>";
                 }
 
+                /*
+                    FILEROS
+                */
+
+                $item = 'id';
+                $valor = $value["id_filero"];
+  
+                $filero1 = ControladorLider::ctrMostrarFileros($item, $valor);
+
+                $filero_name = !empty($filero1['nombre']) ? $filero1['nombre'] : '';
+            
+                $select_fileros = '
+                  <select id="btnFileros" idVotante="'.$value["id_puntero"] .'"  style="width: 100%"  class="custom-select"  name="state">
+                  ';
+                  $select_fileros .= '<option value="">Seleccionar Filero</option>';
+                    foreach($fileros as $filero){
+
+                      $select_fileros .= '<option value="'.$filero['id'].'">'.$filero['nombre'].'</option>';
+                    }
+
+                $select_fileros .= ' </select>
+                ';
                 /*=============================================
                         TRAEMOS LAS ACCIONES
                         =============================================*/
@@ -159,12 +187,12 @@
                                   <td>' . $punteros_lideres['cedula'] . '</td>
                                   <td>' . $value['nombre'] . '</td>
                                   <td>' . $value['cedula'] . '</td>
-                                  <td>' . $value['barrio'] . '</td>
-                                  <td>' . $value['telefono'] . '</td>
                                   <td>' . $value['lugar_votacion'] . '</td>
                                   <td>' . $value['numero_mesa'] . '</td>
                                   <td>' . $value['numero_orden'] . '</td>
-                                  ' . $estado . '
+                                  ' . $estado_veedor . '
+                                  <td>'.$select_fileros.'</td>
+                                  <td>'.$filero_name.'</td>
                                   <td>' . $botones . '</td>
                             </tr>                           
                       ';

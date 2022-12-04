@@ -80,13 +80,96 @@ class ControladorLider{
 			}
 
 
+			}
+
+
 		}
 
 
-	}
+	}	
+
+	/*=============================================
+	INGRESO DEl FILERO
+	=============================================*/
 
 
-}	
+	static public function ctrCrearFilero(){
+
+		if(isset($_POST["nuevoNombre"])){
+
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellido"]) &&
+			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoCedula"])){
+
+			   	
+
+				$tabla = "fileros";
+
+
+				$datos = array("nombre" => $_POST["nuevoNombre"],
+					           "apellido" => $_POST["nuevoApellido"],
+					           "cedula" => intval($_POST["nuevoCedula"]),
+					          );
+
+				
+				$respuesta = ModeloLider::mdlIngresarFilero($tabla, $datos);
+
+			
+				if($respuesta == "ok"){
+
+					echo '<script>
+
+					 swal({
+						  title: "Filero registrado",
+						  text: "Registro exitoso",
+						  icon: "success",
+						  buttons: true,
+						  dangerMode: true,
+						}).then((willDelete) => {
+							if (willDelete) {
+							  window.location = "filero";
+							} else {
+							  window.location = "filero";
+							}
+						  });
+						
+				
+
+					</script>';
+
+
+				} else{
+
+				echo '<script>
+
+					 swal({
+						  title: "Registro incorrecto",
+						  text: "Error al registrar el puntero",
+						  icon: "warning",
+						  buttons: true,
+						  dangerMode: true,
+						}).then((willDelete) => {
+							if (willDelete) {
+							  window.location = "filero";
+							} else {
+							  window.location = "filero";
+							}
+						  });
+						
+				
+
+				</script>';
+
+			}
+
+
+			}
+
+
+		}
+
+
+	}	
 
 	/*=============================================
 	MOSTRAR USUARIO
@@ -97,6 +180,18 @@ class ControladorLider{
 		$tabla = "lider";
 
 		$respuesta = ModeloLider::mdlMostrarLideres($tabla, $item, $valor);
+
+		return $respuesta;
+	}
+	/*=============================================
+	MOSTRAR FILEROS
+	=============================================*/
+
+	static public function ctrMostrarFileros($item, $valor){
+
+		$tabla = "fileros";
+
+		$respuesta = ModeloLider::mdlMostrarFileros($tabla, $item, $valor);
 
 		return $respuesta;
 	}

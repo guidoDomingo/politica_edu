@@ -102,6 +102,18 @@ class ControladorPuntero{
 
 		return $respuesta;
 	}
+	/*=============================================
+	AGREGAR FILERO
+	=============================================*/
+
+	static public function ctrAgregarFilero($valor1,$valor2){
+
+		$tabla = "puntero";
+
+		$respuesta = ModeloPuntero::mdlAgregarFilero($tabla, $valor1, $valor2);
+
+		return $respuesta;
+	}
 
 	/*=============================================
 	Buscar PUNTERO
