@@ -126,10 +126,10 @@
 
                 if ($value["activo"] != 0) {
 
-                  $estado = "<td><button class='btn btn-success btn-xs btnActivar' idVotante='" . $value["id_puntero"] . "' estadoVotante='0'>Si voto</button></td>";
+                  $estado = "<td><button class='btn btn-success btn-xs btnActivar' idVotante='" . $value["id_puntero"] . "' estadoVotante='0'>Si Paso por pc</button></td>";
                 } else {
 
-                  $estado = "<td><button class='btn btn-danger btn-xs btnActivar' idVotante='" . $value["id_puntero"] . "' estadoVotante='1'>No voto</button></td>";
+                  $estado = "<td><button class='btn btn-danger btn-xs btnActivar' idVotante='" . $value["id_puntero"] . "' estadoVotante='1'>No paso por pc</button></td>";
                 }
 
                 /*=============================================

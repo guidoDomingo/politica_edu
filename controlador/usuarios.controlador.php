@@ -26,9 +26,10 @@ class ControladorUsuarios
 
 				$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
+
 				if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] ==  $_POST["ingPassword"]) {
 
-					if ($respuesta["estado"] == 1) {
+					if ($respuesta["estado"] == 1 ) {
 
 						$_SESSION["iniciarSesion"] = "ok";
 						$_SESSION["id"] = $respuesta["id"];
@@ -56,14 +57,20 @@ class ControladorUsuarios
 
 					//	$ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
 
-						//if ($ultimoLogin == "ok") {
+						if ($respuesta["perfil"] == "veedor") {
 
+							echo '<script>
+
+								window.location = "veedor";
+
+							</script>';
+						}else{
 							echo '<script>
 
 								window.location = "inicio";
 
 							</script>';
-						//}
+						}
 					} else {
 
 						echo '<br>

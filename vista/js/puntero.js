@@ -226,12 +226,12 @@ $(".tablas").on("click", ".btnActivar", function () {
   if (estadoVotante == 0) {
     $(this).removeClass("btn-success");
     $(this).addClass("btn-danger");
-    $(this).html("No Voto");
+    $(this).html("No paso por pc");
     $(this).attr("estadoVotante", 1);
   } else {
     $(this).addClass("btn-success");
     $(this).removeClass("btn-danger");
-    $(this).html("Si voto");
+    $(this).html("Si paso por pc");
     $(this).attr("estadoVotante", 0);
   }
 });
@@ -317,7 +317,7 @@ $(".tablas").on("click", ".btnActivarVeedor", function () {
   } else {
     $(this).addClass("btn-success");
     $(this).removeClass("btn-danger");
-    $(this).html("ya paso");
+    $(this).html("Si paso");
     $(this).attr("estadoVotante", 0);
   }
 });
