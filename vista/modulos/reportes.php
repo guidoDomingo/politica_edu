@@ -26,7 +26,7 @@
 
       <div class="box-body">
         
-        <div class="row">
+        <div class="row reporte-one">
 
 
            <div class="col-md-6 col-xs-12">
@@ -53,11 +53,7 @@
         <div class="row">
           <div class="col-md-12 col-xs-12">
               
-              <?php
-  
-                include "reporte_fileros.php";
-  
-              ?>
+              
   
             </div>
         </div>

@@ -4,7 +4,7 @@ $item = null;
 $valor = null;
 $tabla = null;
 
-$fileros = ModeloLider::reporteFileros($tabla,$item, $valor);
+$fileros = ModeloLider::reporteVotantesSinFileros($tabla,$item, $valor);
 
 $colores = array("red","green","yellow","aqua","purple","blue","cyan","magenta","orange","gold");
 $colores = [
@@ -79,13 +79,13 @@ PRODUCTOS MÁS VENDIDOS
 	
 	<div class="box-header with-border">
   
-      <h3 class="box-title">Fileros con sus votantes</h3>
+      <h3 class="box-title">Votantes que pasaron por pc, pero no tienen fileros</h3>
 
     </div>
 
 	<div class="card">
         <div class="card-header">
-          <h3 class="card-title">Tabla de Fileros</h3>
+          <h3 class="card-title">Tabla de Votantes sin fileros</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -95,12 +95,10 @@ PRODUCTOS MÁS VENDIDOS
 
               <tr>
                 <th style="width:10px">#</th>
-                <th>Cantidad de votantes</th>
-                <th>Filero</th>
-                <!-- <th>Zona</th> -->
+                <th>Cedula</th>
                 <th>Votante</th>
-                <th>PC</th>
-                <th>Ya voto</th>
+                <!-- <th>Zona</th> -->
+                <th>Estado</th>
     
               </tr>
 
@@ -113,25 +111,19 @@ PRODUCTOS MÁS VENDIDOS
 
               foreach ($fileros as $key => $value) {
                 
-                if($value['ya_voto'] == 1){
-                    $mensaje = "<td class='veedor_voto'>Ya voto</td>";
+                if($value['activo_veedor'] == 1){
+                    $mensaje = "<td class='veedor_voto'>Con Filero</td>";
                 }else{
-                    $mensaje = "<td class='veedor_no_voto'>No voto</td>";
+                    $mensaje = "<td class='veedor_no_voto'>Sin Filero</td>";
                 }
 
-                if($value['paso_pc'] == 1){
-                    $mensaje_pc = "<td class='veedor_voto'>Ya Paso</td>";
-                }else{
-                    $mensaje_pc = "<td class='veedor_no_voto'>No Paso</td>";
-                }
+                
 
                 echo '
                              <tr style="text-align:center">
                                   <td>' . ($key + 1) . '</td> 
-                                  <td>' . $value['count'].'</td>
-                                  <td>' . $value['filero'] . '</td>
+                                  <td>' . $value['cedula'].'</td>
                                   <td>' . $value['votante'] . '</td>
-                                  '.$mensaje_pc.' 
                                   '.$mensaje.' 
                             </tr>      
                       ';

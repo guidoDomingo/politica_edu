@@ -116,6 +116,23 @@
         if ($_SESSION["perfil"] == "Administrador") {
           echo '
             <li class="nav-item">
+            <a href="veedor-reporte" class="nav-link">
+            <i class="nav-icon fa fa-flag"></i>
+              <p>
+                Reportes Veedor
+              </p>
+            </a>
+          </li>
+            ';
+        }
+
+        ?>
+
+        <?php
+
+        if ($_SESSION["perfil"] == "Administrador") {
+          echo '
+            <li class="nav-item">
             <a href="reportes" class="nav-link">
              <i class="nav-icon fa fa-flag"></i>
               <p>

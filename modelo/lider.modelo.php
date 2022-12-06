@@ -96,14 +96,54 @@ class ModeloLider{
 
 			$stmt = Conexion::conectar()->prepare("
 				select 
-					count(p.id_filero), f.nombre as filero,p2.nombre || ' ' || p2.apellido  as votante , f.id, p.activo_veedor  as ya_voto
+					count(p.id_filero), f.nombre as filero,p2.nombre || ' ' || p2.apellido  as votante , f.id,p.activo as paso_pc, p.activo_veedor  as ya_voto
 				from fileros f 
 				inner join puntero p 
 					on f.id = p.id_filero
 				inner join personas p2 
 					on p.id_persona_puntero = p2.id_persona 
-				group by f.nombre, f.id, p.activo_veedor, p.id_filero,p2.nombre, p2.apellido 
+				group by f.nombre, f.id, p.activo_veedor, p.id_filero,p2.nombre, p2.apellido , p.activo
 				order by p.id_filero 
+			");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+		
+
+		$stmt = null;
+
+	}
+	/*=============================================
+	reporte votantes sin fileros
+	=============================================*/
+
+	static public function reporteVotantesSinFileros($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("
+				SELECT * FROM $tabla   
+				WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("
+			select 
+				p2.cedula ,p2.nombre || ' ' || p2.apellido as votante, p.activo_veedor 
+			from puntero p
+			inner join personas p2 
+				on
+			p.id_persona_puntero = p2.id_persona 
+				where p.activo_veedor  = 0 and p.activo = 1
 			");
 
 			$stmt -> execute();
