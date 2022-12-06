@@ -145,10 +145,10 @@
 
                 if ($value["activo_veedor"] != 0) {
 
-                  $estado_veedor = "<td><button class='btn btn-success btn-xs btnActivarVeedor' idVotante='" . $value["id_puntero"] . "' estadoVotante='0'>Si paso</button></td>";
+                  $estado_veedor = "<td><button class='btn btn-success btn-xs btnActivarVeedor' idVotante='" . $value["id_puntero"] . "' estadoVotante='0'>Si voto</button></td>";
                 } else {
 
-                  $estado_veedor = "<td><button class='btn btn-danger btn-xs btnActivarVeedor' idVotante='" . $value["id_puntero"] . "' estadoVotante='1'>No paso</button></td>";
+                  $estado_veedor = "<td><button class='btn btn-danger btn-xs btnActivarVeedor' idVotante='" . $value["id_puntero"] . "' estadoVotante='1'>No voto</button></td>";
                 }
 
                 /*

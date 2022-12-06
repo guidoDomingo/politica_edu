@@ -312,12 +312,12 @@ $(".tablas").on("click", ".btnActivarVeedor", function () {
   if (estadoVotante == 0) {
     $(this).removeClass("btn-success");
     $(this).addClass("btn-danger");
-    $(this).html("No paso");
+    $(this).html("No voto");
     $(this).attr("estadoVotante", 1);
   } else {
     $(this).addClass("btn-success");
     $(this).removeClass("btn-danger");
-    $(this).html("Si paso");
+    $(this).html("Si voto");
     $(this).attr("estadoVotante", 0);
   }
 });
